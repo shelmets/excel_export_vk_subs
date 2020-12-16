@@ -1,11 +1,13 @@
 import export, source
+import getpass
 
 def main():
+    group_id = input("input group id:")
+    access_token = getpass.getpass("input access_token:")
     print("wait pls...")
-    access_token = "472e1787472e1787472e1787ec474e0a994472e472e178718f430a6a31e6db38933835e"
     vkapi = source.VkSource(v="5.126")
     csv = export.CSVExport(vkapi, 100)
-    csv.export("198006443", access_token)
+    csv.export(group_id, access_token)
     csv.dispose()
     print("done!")
 
